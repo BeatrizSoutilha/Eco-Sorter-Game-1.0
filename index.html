@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eco Sorter Pro</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <audio id="background-music" loop>
+            <source src="sounds/background-music.mp3" type="audio/mpeg" />
+        </audio>
+
+        <audio id="correct-sound">
+            <source src="sounds/correct.mp3" type="audio/mpeg" />
+        </audio>
+
+        <audio id="error-sound">
+            <source src="sounds/error.mp3" type="audio/mpeg" />
+        </audio>
+
+        <audio id="critical-error-sound">
+            <source src="sounds/critical-error.mp3" type="audio/mpeg" />
+        </audio>
+        <div id="difficulty-screen" class="difficulty-screen">
+            <h1>♻ ECO SORTER</h1>
+            <p>Selecione a dificuldade:</p>
+            <div class="difficulty-buttons">
+                <button class="difficulty-btn easy" data-level="easy">
+                    <span class="emoji">🌱</span>
+                    <span class="text">Fácil</span>
+                    <span class="desc">Items lentos, mais tempo</span>
+                </button>
+                <button class="difficulty-btn medium" data-level="medium">
+                    <span class="emoji">🌍</span>
+                    <span class="text">Médio</span>
+                    <span class="desc">Desafio balanceado</span>
+                </button>
+                <button class="difficulty-btn hard" data-level="hard">
+                    <span class="emoji">🔥</span>
+                    <span class="text">Difícil</span>
+                    <span class="desc">Ação rápida!</span>
+                </button>
+            </div>
+            <button id="start-button" class="hidden" onclick="startGame()">
+                <i class="fas fa-play"></i> Começar Jogo
+            </button>
+        </div>
+        <div id="game-container" class="hidden">
+            <div class="header">
+                <button id="music-toggle" onclick="toggleMusic()">
+                    🎵 Som
+                </button>
+                <button id="pause-button" onclick="togglePause()">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <h1>♻ ECO SORTER</h1>
+                <div class="score">Pontuação: <span id="score">0</span></div>
+                <div class="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="bins">
+                <div class="bin" data-type="plastic">🥤 Plástico</div>
+                <div class="bin" data-type="paper">📄 Papel</div>
+                <div class="bin" data-type="glass">🍷 Vidro</div>
+                <div class="bin" data-type="organic">🍌 Orgânico</div>
+                <div class="bin" data-type="metal">🥄 Metal</div>
+                <div class="bin" data-type="ewaste">🔌 Lixo Eletrônico</div>
+            </div>
+            <div id="particles"></div>
+        </div>
+        <script src="game.js"></script>
+        <div id="game-over-modal" class="hidden">
+            <div class="modal-content">
+                <h2>Fim de Jogo! ♻️</h2>
+                <p id="final-score-text">Pontuação: 0</p>
+                <p id="high-score-text">Recorde: 0</p>
+                <div id="recycling-fact" class="destaque-fact">
+                    🍃 Dica de Reciclagem 🍃
+                </div>
+                <div class="modal-buttons">
+                    <button id="reset-button">Jogar Novamente</button>
+                    <button id="menu-button">Menu Principal</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
